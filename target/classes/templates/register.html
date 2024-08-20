@@ -2,16 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" th:href="C:\Users\user\Desktop\accounting\src\main\resources\static\styles.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
     <form th:action="@{/register}" th:object="${user}" method="post">
         <h2>Register</h2>
+        
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" th:field="*{username}" required />
+        <input type="text" id="username" name="username" 
+               th:field="*{username}" 
+               pattern="^[a-zA-Z0-9]+$" 
+               title="Username must contain only letters and numbers"
+               required />
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" th:field="*{password}" required />
+        <input type="password" id="password" name="password" 
+               th:field="*{password}" 
+               pattern="^[a-zA-Z0-9]+$" 
+               title="Password must contain only letters and numbers"
+               required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" 
+               th:field="*{email}" 
+               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+               title="Please enter a valid email address"
+               required />
+
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" th:field="*{firstname}" required />
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" th:field="*{lastname}" required />
         
         <button type="submit">Register</button>
         

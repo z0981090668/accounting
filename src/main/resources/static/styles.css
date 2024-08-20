@@ -35,6 +35,15 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 button[type="submit"] {
     width: 100%;
     padding: 10px;

@@ -28,12 +28,8 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         }
         
-        // 加载用户权限
+        // 用戶權限
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        // 如果您的User实体有roles字段，可以这样添加权限
-        // user.getRoles().forEach(role -> {
-        //     authorities.add(new SimpleGrantedAuthority(role.getName()));
-        // });
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(), 

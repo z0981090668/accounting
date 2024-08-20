@@ -22,7 +22,7 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return myUserDetailsService; // 使用自定义的 UserDetailsService
+        return myUserDetailsService; 
     }
 
     @Bean
@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .userDetailsService(userDetailsService()) // 显式设置自定义的 UserDetailsService
+            .userDetailsService(userDetailsService()) 
             .authorizeHttpRequests((requests) -> requests
                 .requestMatchers("/register", "/login").permitAll()
                 .anyRequest().authenticated()
