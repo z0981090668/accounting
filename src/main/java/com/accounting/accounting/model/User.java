@@ -1,5 +1,8 @@
 package com.accounting.accounting.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.sql.Date;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,6 +30,14 @@ public class User {
 
     @Column(nullable = false)
     private boolean enabled;
+
+        @CreationTimestamp
+    @Column(name = "創建時間", updatable = false)
+    private Date createTime;
+
+    @UpdateTimestamp
+    @Column(name = "修改時間")
+    private Date updateTime;
 
 
     public Long getId() {

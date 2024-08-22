@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會計系統介面</title>
+  <link rel="stylesheet" href="/css/user.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>會計系統</h2>
+    <ul>
+      <li><a href="#">儀表板</a></li>
+      <li><a href="#">帳戶管理</a></li>
+      <li><a href="#">交易管理</a></li>
+      <li><a href="#">發票</a></li>
+      <li><a href="#">報告</a></li>
+      <li><a href="#">設定</a></li>
+    </ul>
+  </div>
+  
+  <div class="main-content">
+    <!-- 使用者名稱欄位 -->
+    <div class="user-info">
+      <p>使用者名稱: <span th:text="${username}">username</span></p>
+    </div>
+
+    <div class="header">
+      <h1>儀表板</h1>
+    </div>
+    
+    <div class="dashboard">
+      <div class="card">
+        <h3>現金餘額</h3>
+        <p>$25,000</p>
+      </div>
+      <div class="card">
+        <h3>收入</h3>
+        <p>$10,000</p>
+      </div>
+      <div class="card">
+        <h3>支出</h3>
+        <p>$5,000</p>
+      </div>
+    </div>
+    
+    <div class="chart">
+      <h3>財務概覽</h3>
+      <!-- 圖表的佔位符 -->
+      <p>這裡可以顯示圖表和財務數據視覺化。</p>
+    </div>
+  </div>
+</body>
+</html>

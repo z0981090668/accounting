@@ -40,10 +40,12 @@ public class SecurityConfig {
             )
             .formLogin((form) -> form
                 .loginPage("/login")
+                .defaultSuccessUrl("/user/home", true) // 指定登入成功後跳轉的頁面
                 .permitAll()
             )
             .logout((logout) -> logout.permitAll());
-
+    
         return http.build();
     }
+    
 }
