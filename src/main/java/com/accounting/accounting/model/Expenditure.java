@@ -1,11 +1,10 @@
 package com.accounting.accounting.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -16,67 +15,67 @@ public class Expenditure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "日期")
-    private Date date;
+    @Column(name = "日期", nullable = false)
+    private LocalDate date; // 修改為 LocalDate
 
-    @Column(name = "單號")
+    @Column(name = "單號", nullable = false)
     private String orderNumber;
 
-    @Column(name = "單位")
+    @Column(name = "單位", nullable = false)
     private String unit;
 
-    @Column(name = "公司抬頭")
+    @Column(name = "公司抬頭", nullable = false)
     private String companyHeader;
 
-    @Column(name = "品名")
+    @Column(name = "品名", nullable = false)
     private String productName;
 
-    @Column(name = "數量")
+    @Column(name = "數量", nullable = false)
     private Integer quantity;
 
-    @Column(name = "單價")
+    @Column(name = "單價", nullable = false)
     private BigDecimal unitPrice;
 
-    @Column(name = "合計")
+    @Column(name = "合計", nullable = false)
     private BigDecimal total;
 
-    @Column(name = "稅")
+    @Column(name = "稅", nullable = true)
     private BigDecimal tax;
 
-    @Column(name = "帳列月")
+    @Column(name = "帳列月", nullable = false)
     private String accountingMonth;
 
-    @Column(name = "憑證日期")
-    private Date voucherDate;
+    @Column(name = "憑證日期", nullable = true)
+    private LocalDate voucherDate; // 修改為 LocalDate
 
-    @Column(name = "憑證編號")
+    @Column(name = "憑證編號", nullable = true)
     private String voucherNumber;
 
-    @Column(name = "憑證金額")
+    @Column(name = "憑證金額", nullable = true)
     private BigDecimal voucherAmount;
 
-    @Column(name = "應付金額")
+    @Column(name = "應付金額", nullable = false)
     private BigDecimal payableAmount;
 
-    @Column(name = "已付金額")
+    @Column(name = "已付金額", nullable = true)
     private BigDecimal paidAmount;
 
-    @Column(name = "本月應付金額")
+    @Column(name = "本月應付金額", nullable = true)
     private BigDecimal currentPayableAmount;
 
-    @Column(name = "付款單位")
+    @Column(name = "付款單位", nullable = false)
     private String paymentUnit;
 
-    @Column(name = "備註")
+    @Column(name = "備註", nullable = true)
     private String remarks;
 
     @CreationTimestamp
-    @Column(name="創建時間", updatable = false)
-    private Date createTime;
+    @Column(name = "創建時間", updatable = false, nullable = false)
+    private LocalDate createTime;
 
     @UpdateTimestamp
-    @Column(name = "修改時間")
-    private Date updateTime;
+    @Column(name = "修改時間", nullable = false)
+    private LocalDate updateTime;
 
     // Getters and Setters
 
@@ -88,11 +87,11 @@ public class Expenditure {
         this.id = id;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -168,11 +167,11 @@ public class Expenditure {
         this.accountingMonth = accountingMonth;
     }
 
-    public Date getVoucherDate() {
+    public LocalDate getVoucherDate() {
         return voucherDate;
     }
 
-    public void setVoucherDate(Date voucherDate) {
+    public void setVoucherDate(LocalDate voucherDate) {
         this.voucherDate = voucherDate;
     }
 
@@ -232,11 +231,11 @@ public class Expenditure {
         this.remarks = remarks;
     }
 
-    public Date getCreateTime() {
+    public LocalDate getCreateTime() {
         return createTime;
     }
 
-    public Date getUpdateTime() {
+    public LocalDate getUpdateTime() {
         return updateTime;
     }
 }
