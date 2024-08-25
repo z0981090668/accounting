@@ -1,6 +1,8 @@
 package com.accounting.accounting.controller;
 
+import com.accounting.accounting.model.Role;
 import com.accounting.accounting.model.User;
+import com.accounting.accounting.repository.RoleRepository;
 import com.accounting.accounting.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,15 +13,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 public class UserController {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository; // 新增角色倉庫
     private final PasswordEncoder passwordEncoder;
 
-    // 使用構造函數注入 UserRepository 和 PasswordEncoder
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    // 使用構造函數注入 UserRepository, RoleRepository 和 PasswordEncoder
+    public UserController(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -35,9 +42,17 @@ public class UserController {
     public String registerUser(@ModelAttribute User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword())); // 將用戶密碼加密
         user.setEnabled(true); // 啟用用戶帳戶
-        user.setEmail(user.getEmail()); // 設置用戶電子郵件
-        user.setFirstname(user.getFirstname()); // 設置用戶名字
-        user.setLastname(user.getLastname()); // 設置用戶姓氏
+        
+        // 設置默認角色為 ROLE_USER
+        Role userRole = roleRepository.findByName("ROLE_USER");
+        if (userRole == null) {
+            userRole = new Role();
+            userRole.setName("ROLE_USER");
+            roleRepository.save(userRole); // 確保角色已保存到數據庫
+        }
+        Set<Role> roles = new HashSet<>();
+        roles.add(userRole);
+        user.setRoles(roles);
         
         userRepository.save(user); // 保存用戶到資料庫
         
@@ -62,5 +77,9 @@ public class UserController {
 
         return "UserHome"; // 返回用戶首頁的視圖名稱
     }
-}
 
+    @GetMapping("/viewdata")
+    public String showdata(){
+        return "upload";
+    }
+}

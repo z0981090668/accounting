@@ -1,6 +1,5 @@
 package com.accounting.accounting.config;
 
-import com.accounting.accounting.service.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.accounting.accounting.service.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -33,19 +34,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .userDetailsService(userDetailsService()) 
+            .userDetailsService(userDetailsService())
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/register", "/login").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/register", "/login", "/css/**", "/js/**", "/images/**").permitAll() // 公共路徑，允許所有用戶訪問
+                .requestMatchers("/viewinfo").hasRole("ROLE")  // 只有擁有USER角色的用戶可以訪問
+                .requestMatchers("/admin/**").hasRole("ADMIN") // 只有擁有ADMIN角色的用戶可以訪問
+                .anyRequest().authenticated() // 其他所有請求都需要認證
             )
             .formLogin((form) -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/user/home", true) // 指定登入成功後跳轉的頁面
+                .defaultSuccessUrl("/user/home", true)
                 .permitAll()
             )
-            .logout((logout) -> logout.permitAll());
+            .logout((logout) -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            );
     
         return http.build();
     }
-    
 }

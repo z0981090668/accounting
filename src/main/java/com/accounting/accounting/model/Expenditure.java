@@ -18,7 +18,7 @@ public class Expenditure {
     @Column(name = "日期", nullable = false)
     private LocalDate date; // 修改為 LocalDate
 
-    @Column(name = "單號", nullable = false)
+    @Column(name = "單號", nullable = true)
     private String orderNumber;
 
     @Column(name = "單位", nullable = false)

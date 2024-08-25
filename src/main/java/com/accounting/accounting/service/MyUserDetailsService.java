@@ -1,9 +1,9 @@
 package com.accounting.accounting.service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,9 +26,11 @@ public class MyUserDetailsService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
-        
-        // 用戶權限
-        Collection<GrantedAuthority> authorities = new ArrayList<>();
+
+        // 將用戶的角色轉換為 GrantedAuthority
+        Collection<GrantedAuthority> authorities = user.getRoles().stream()
+            .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+            .collect(Collectors.toList());
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(), 
