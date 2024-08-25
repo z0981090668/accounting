@@ -1,0 +1,7 @@
+實作java spring boot MVC架構串接PosgreSQL實作會計管理系統，運用Model創建Table和get post的實例，並把controller分成 Repositroy
+Service controller，運用Repositroy連接Model創建儲存層，用Service層去實作業務邏輯，再用controller包裝成API提供前端應用．
+目前功能有
+1.帳號登入創建系統和介面
+2.基本使用者介面
+3.Excel資料表上傳功能
+
