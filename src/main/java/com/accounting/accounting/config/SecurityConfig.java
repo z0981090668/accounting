@@ -36,9 +36,9 @@ public class SecurityConfig {
         http
             .userDetailsService(userDetailsService())
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/register", "/login", "/css/**", "/js/**", "/images/**").permitAll() // 公共路徑，允許所有用戶訪問
-                .requestMatchers("/viewinfo").hasRole("ROLE")  // 只有擁有USER角色的用戶可以訪問
-                .requestMatchers("/admin/**").hasRole("ADMIN") // 只有擁有ADMIN角色的用戶可以訪問
+                .requestMatchers("/register", "/login","/css/**", "/js/**", "/images/**", "/error").permitAll()// 公共路徑，允許所有用戶訪問
+                .requestMatchers("/viewinfo","/search","/api/expenditures/upload").hasRole("ROLE") // 只有擁有USER角色的用戶可以訪問
+                .requestMatchers("/admin/**").hasRole("ADMIN") // 只有擁有 ADMIN 角色的用戶可以訪問
                 .anyRequest().authenticated() // 其他所有請求都需要認證
             )
             .formLogin((form) -> form
@@ -51,7 +51,8 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll()
             );
-    
+
         return http.build();
     }
 }
+

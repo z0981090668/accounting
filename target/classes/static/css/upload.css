@@ -1,41 +1,82 @@
-.container {
-    margin-top: 30px;
-}
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-section, .table-section {
-    margin-bottom: 30px;
-}
-
-.form-label {
-    font-weight: bold;
-}
-
-.form-control, .btn {
-    margin-bottom: 15px;
-}
-
-.table-responsive {
-    margin-top: 20px;
-}
-
-.file-upload-section {
-    background-color: #f8f9fa;
+/* 設定通用樣式 */
+body {
+    font-family: Arial, sans-serif; /* 設定字體 */
+    margin: 0;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    background-color: #f4f4f4; /* 設定背景顏色 */
+    line-height: 1.6; /* 設定行高 */
 }
 
-.file-upload-section label {
-    margin-bottom: 10px;
-    font-weight: bold;
+/* 標題樣式 */
+h1 {
+    text-align: center; /* 置中對齊 */
+    margin-bottom: 20px;
+    font-size: 2em; /* 設定字體大小 */
+    color: #333; /* 設定文字顏色 */
+}
+/* 表單標籤的樣式 */
+label {
+    margin-bottom: 8px;
+    font-weight: bold; /* 字體加粗 */
+    color: #333; /* 文字顏色 */
 }
 
-.file-upload-section .btn-primary {
-    width: 100%;
+/* 表單輸入框的樣式 */
+input[type="text"], input[type="date"] {
+    width: 10%; /* 寬度為100% */
+    padding: 8px; /* 內距 */
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* 邊框樣式 */
+    border-radius: 4px; /* 圓角 */
+    font-size: 0.9em; /* 字體大小 */
+    color: #333; /* 文字顏色 */
+}
+input[type="file"] {
+    width: 20%; /* 寬度為100% */
+    padding: 8px; /* 內距 */
+    margin-bottom: 15px;
+    border: 1px solid #ccc; /* 邊框樣式 */
+    border-radius: 4px; /* 圓角 */
+    font-size: 0.9em; /* 字體大小 */
+    color: #333; /
+}
+
+/* 表單輸入框獲取焦點時的樣式 */
+input[type="text"]:focus, input[type="date"]:focus, input[type="file"]:focus {
+    border-color: #7700ff; /* 焦點時的邊框顏色 */
+    outline: none; /* 移除默認的外框 */
+}
+
+/* 按鈕樣式 */
+button {
+    width: 10%; /* 寬度為100% */
+    padding: 10px; /* 內距 */
+    background-color: #396781; /* 背景顏色 */
+    color: #fff; /* 文字顏色 */
+    border: none; /* 移除邊框 */
+    border-radius: 4px; /* 圓角 */
+    cursor: pointer; /* 滑鼠變為指針 */
+    font-size: 1em; /* 字體大小 */
+    transition: background-color 0.3s ease; /* 背景顏色變化過渡效果 */
+}
+
+/* 按鈕懸停時的樣式 */
+button:hover {
+    background-color: #2c3f50; /* 懸停時的背景顏色 */
+}
+
+/* 查詢結果區域的樣式 */
+.results {
+    margin-top: 20px; /* 頂部外距 */
+}
+
+/* 響應式設計：針對小於768px的螢幕 */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%; /* 在小螢幕上，容器寬度設為90% */
+    }
+
+    button {
+        font-size: 0.9em; /* 小螢幕上，調整按鈕字體大小 */
+    }
 }

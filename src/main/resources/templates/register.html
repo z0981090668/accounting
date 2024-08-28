@@ -8,16 +8,16 @@
 </head>
 <body>
     <form th:action="@{/register}" th:object="${user}" method="post">
-        <h2>Register</h2>
+        <h2>註冊</h2>
         
-        <label for="username">Username:</label>
+        <label for="username">帳號:</label>
         <input type="text" id="username" name="username" 
                th:field="*{username}" 
                pattern="^[a-zA-Z0-9]+$" 
                title="Username must contain only letters and numbers"
                required />
         
-        <label for="password">Password:</label>
+        <label for="password">密碼:</label>
         <input type="password" id="password" name="password" 
                th:field="*{password}" 
                pattern="^[a-zA-Z0-9]+$" 
@@ -31,10 +31,10 @@
                title="Please enter a valid email address"
                required />
 
-        <label for="firstname">First Name:</label>
+        <label for="firstname">名字:</label>
         <input type="text" id="firstname" name="firstname" th:field="*{firstname}" required />
 
-        <label for="lastname">Last Name:</label>
+        <label for="lastname">姓氏:</label>
         <input type="text" id="lastname" name="lastname" th:field="*{lastname}" required />
         
         <button type="submit">Register</button>

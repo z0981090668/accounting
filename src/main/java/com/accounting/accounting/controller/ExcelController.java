@@ -15,12 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class ExcelController {
 
     @Autowired
-    private ExpenditureService expenditureService; // 修改為 ExpenditureService
+    private ExpenditureService expenditureService; 
 
-    @PostMapping("/upload")
+    @PostMapping("/api/expenditures/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
-            expenditureService.saveExcelData(file); // 使用 ExpenditureService
+            expenditureService.saveExcelData(file);
             return ResponseEntity.ok("File uploaded and processed successfully.");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file: " + e.getMessage());

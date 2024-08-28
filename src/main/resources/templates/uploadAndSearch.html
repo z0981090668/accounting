@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
+    <title>Expenditure Management</title>
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+<body>
+
+    <h1>支出管理</h1>
+    
+    <div class="container">
+        <div class="search-container">
+            <h2>支出查詢</h2>
+            <label for="startDate">開始日期</label>
+            <input type="date" id="startDate" name="startDate">
+
+            <label for="endDate">結束日期</label>
+            <input type="date" id="endDate" name="endDate">
+
+            <label for="companyHeader">公司名稱</label>
+            <input type="text" id="companyHeader" name="companyHeader">
+
+            <label for="unit">單位</label>
+            <input type="text" id="unit" name="unit">
+
+            <button onclick="searchExpenditures()">Search</button>
+        </div>
+
+        <div class="upload-container">
+            <h2>Excel資料上傳</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" id="fileUpload" name="fileUpload" accept=".xls,.xlsx">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="results" id="results"></div>
+
+    <script src="/js/Expenditure.js"></script>
+
+</body>
+</html>

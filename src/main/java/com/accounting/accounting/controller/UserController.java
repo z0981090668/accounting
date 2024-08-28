@@ -80,6 +80,6 @@ public class UserController {
 
     @GetMapping("/viewdata")
     public String showdata(){
-        return "upload";
+        return "uploadAndSearch";
     }
 }
