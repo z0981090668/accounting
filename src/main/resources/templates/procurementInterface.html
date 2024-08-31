@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
+    <title>進貨管理</title>
+    <link rel="stylesheet" href="/css/upload.css">
+</head>
+<body>
+
+    <h1>進貨管理系統</h1>
+
+    <div class="container">
+
+        <!-- 進貨查詢 -->
+        <div class="search-container">
+            <h3>進貨查詢</h3>
+            <label for="startDateProcurement">開始日期</label>
+            <input type="date" id="startDateProcurement" name="startDateProcurement">
+
+            <label for="endDateProcurement">結束日期</label>
+            <input type="date" id="endDateProcurement" name="endDateProcurement">
+
+            <label for="purchaser">採購人</label>
+            <input type="text" id="purchaser" name="purchaser">
+
+            <label for="store">店別</label>
+            <input type="text" id="store" name="store">
+
+            <button onclick="searchProcurements()">查詢</button>
+        </div>
+
+        <!-- 進貨資料上傳 -->
+        <div class="upload-container">
+            <h3>上傳進貨資料 (Excel)</h3>
+            <form id="uploadProcurementForm" enctype="multipart/form-data">
+                <input type="file" id="fileUploadProcurement" name="fileUpload" accept=".xls,.xlsx">
+                <button type="submit">上傳</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <div class="results" id="resultsProcurements"></div>
+
+    <!-- 引入專屬的JavaScript文件 -->
+    <script src="/js/Procurement.js"></script>
+
+</body>
+</html>

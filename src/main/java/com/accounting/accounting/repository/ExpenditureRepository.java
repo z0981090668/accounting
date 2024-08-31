@@ -27,5 +27,4 @@ public interface ExpenditureRepository extends JpaRepository<Expenditure, Long> 
 
     List<Expenditure> findByDateBetweenAndUnit(LocalDate startDate, LocalDate endDate, String unit);
 
-    List<Expenditure> findByCompanyHeaderAndUnit(String companyHeader, String unit);
 }

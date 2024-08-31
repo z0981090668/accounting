@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class SearchService {
+public class SearchExpenditureService {
 
     @Autowired
     private ExpenditureRepository expenditureRepository;
