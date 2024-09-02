@@ -17,7 +17,7 @@ public class ExcelController {
     @Autowired
     private ExpenditureService expenditureService; 
 
-    @PostMapping("/api/expenditures/upload")
+    @PostMapping("/expenditures/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             expenditureService.saveExcelData(file);

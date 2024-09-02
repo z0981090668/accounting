@@ -2,11 +2,8 @@ package com.accounting.accounting.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.security.core.GrantedAuthority;
-
 import jakarta.persistence.*;
 import java.sql.Date;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 

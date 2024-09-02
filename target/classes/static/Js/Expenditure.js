@@ -81,35 +81,3 @@ function searchExpenditures() {
         });
 }
 
-// 上傳文件功能
-// 獲取CSRF token
-const csrfToken = document.querySelector('meta[name="_csrf"]').getAttribute('content');
-const csrfHeader = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
-
-document.getElementById('uploadForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // 防止表單的默認提交
-
-    const formData = new FormData();
-    const fileUpload = document.getElementById('fileUpload').files[0];
-    formData.append("file", fileUpload);
-
-    fetch('/api/expenditures/upload', {
-        method: 'POST',
-        body: formData,
-        headers: {
-            [csrfHeader]: csrfToken
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("File uploaded successfully");
-        } else {
-            alert("File upload failed");
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred during file upload");
-    });
-});
-

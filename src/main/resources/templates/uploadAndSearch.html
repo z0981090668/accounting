@@ -32,8 +32,8 @@
 
         <div class="upload-container">
             <h2>Excel資料上傳</h2>
-            <form id="uploadForm" enctype="multipart/form-data">
-                <input type="file" id="fileUpload" name="fileUpload" accept=".xls,.xlsx">
+            <form id="uploadForm" enctype="multipart/form-data" method="post" action="/api/excel/expenditures/upload">
+                <input type="file" id="fileUpload" name="file" accept=".xls,.xlsx"> <!-- 將 name 屬性更改為 "file" -->
                 <button type="submit">Upload</button>
             </form>
         </div>

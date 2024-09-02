@@ -34,10 +34,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            .csrf().disable() // 修正語法錯誤
             .userDetailsService(userDetailsService())
             .authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/register", "/login","/css/**", "/js/**", "/images/**", "/error").permitAll()// 公共路徑，允許所有用戶訪問
-                .requestMatchers("/viewinfo","/search","/api/expenditures/upload").hasRole("ROLE") // 只有擁有USER角色的用戶可以訪問
+                .requestMatchers("/register", "/login", "/css/**", "/js/**", "/images/**", "/error").permitAll() // 公共路徑，允許所有用戶訪問
+                .requestMatchers("/viewinfo","/search").hasRole("USER") // 修正角色名稱
                 .requestMatchers("/admin/**").hasRole("ADMIN") // 只有擁有 ADMIN 角色的用戶可以訪問
                 .anyRequest().authenticated() // 其他所有請求都需要認證
             )
@@ -55,4 +56,3 @@ public class SecurityConfig {
         return http.build();
     }
 }
-
