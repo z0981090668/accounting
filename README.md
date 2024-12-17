@@ -1,17 +1,17 @@
+The system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database. In this architecture, the Model layer is responsible for creating database tables and providing getter and setter methods. The MVC architecture is divided into three parts: Model, View, and Controller.
 
-The system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database. In this architecture, the Model layer is used to create database tables and provide getter and setter methods. The Controller layer is divided into three parts: Repository, Service, and Controller.
-
-Repository: Responsible for connecting with the Model and creating the data storage layer.
-Service: Implements business logic.
-Controller: Packages the business logic into APIs for the front-end View layer to use.
+All Layers:
+Repository: Responsible for interacting with the Model and handling the data storage layer.
+Service: Implements the business logic.
+Controller: Packages the business logic into APIs for the front-end View layer to consume.
 
 The View layer is further divided into two parts:
 Template: Stores HTML interfaces.
 Static: Contains CSS and JavaScript files used to render the HTML.
 
-
-The system currently includes the following features:
+Currently, the system includes the following features:
 User account login system and related interfaces
 Basic user interface
 Excel spreadsheet upload functionality
+Expenditure data search based on conditions and display for the front-end interface
 Additional functionalities are continuously being added and enhanced.
