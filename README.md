@@ -1,6 +1,8 @@
-# System Architecture Overview
+# Accounting System
 
-This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database,The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**,Below is an overview of the architecture and key components of the system.
+## System Architecture Overview
+
+This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database for basic accounting purposes. The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**. Below is an overview of the architecture and key components of the system.
 
 ### All Layers:
 - **Repository**: Responsible for interacting with the Model and handling the data storage layer.
@@ -15,7 +17,6 @@ The **View** layer is further divided into two parts:
 ## Features
 
 Currently, the system includes the following features:
-
 - User account login system and related interfaces
 - Basic user interface
 - Excel spreadsheet upload functionality
@@ -32,3 +33,4 @@ Currently, the system includes the following features:
 - **Java** (Spring Boot MVC Framework)
 - **PostgreSQL** (Database)
 - **HTML/CSS/JavaScript** (Frontend Templates and Static Files)
+
