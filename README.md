@@ -21,7 +21,6 @@ Currently, the system includes the following features:
 - Basic user interface
 - Excel spreadsheet upload functionality
 - Expenditure data search based on conditions and display for the front-end interface
-- Additional functionalities are continuously being added and enhanced.
 
 ## Future Enhancements
 
