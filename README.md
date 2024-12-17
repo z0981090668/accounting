@@ -1,6 +1,6 @@
 # System Architecture Overview
 
-This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database. Below is an overview of the architecture and key components of the system. The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**.
+This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database,The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**,Below is an overview of the architecture and key components of the system.
 
 ### All Layers:
 - **Repository**: Responsible for interacting with the Model and handling the data storage layer.
