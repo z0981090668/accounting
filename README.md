@@ -1,14 +1,11 @@
 # System Architecture Overview
 
-This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database. Below is an overview of the architecture and key components of the system.
-
-## Architecture
-
-In this architecture, the **Model** layer is responsible for creating database tables and providing getter and setter methods. The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**.
+This system is implemented using the Java Spring Boot MVC framework and connects to a PostgreSQL database. Below is an overview of the architecture and key components of the system. The MVC architecture is divided into three parts: **Model**, **View**, and **Controller**.
 
 ### All Layers:
 - **Repository**: Responsible for interacting with the Model and handling the data storage layer.
 - **Service**: Implements the business logic.
+- **Model**: Responsible for creating database tables and providing getter and setter methods.
 - **Controller**: Packages the business logic into APIs for the front-end **View** layer to consume.
 
 The **View** layer is further divided into two parts:
