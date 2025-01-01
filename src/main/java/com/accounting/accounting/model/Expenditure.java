@@ -2,7 +2,6 @@ package com.accounting.accounting.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.*;

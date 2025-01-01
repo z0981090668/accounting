@@ -1,7 +1,7 @@
 package com.accounting.accounting.controller;
 
 import com.accounting.accounting.model.Expenditure;
-import com.accounting.accounting.service.SearchService;
+import com.accounting.accounting.service.ExpenditureSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Searchcontroller {
 
     @Autowired
-    private SearchService viewInformationService;
+    private ExpenditureSearchService viewInformationService;
 
     @GetMapping("/searchByDateRange")
     public List<Expenditure> searchByDateRange(
